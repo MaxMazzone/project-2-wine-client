@@ -37,10 +37,20 @@ const signOut = function () {
     }
   })
 }
-
+const makeWine = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/wines',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  makeWine
 }

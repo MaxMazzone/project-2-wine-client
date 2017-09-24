@@ -35,6 +35,15 @@ const signOutSuccess = function (gameLogic) {
 const signOutFailure = function () {
   console.log('Error signing out')
 }
+const MakeWineSuccess = function (data) {
+  console.log('make wine success')
+  console.log(data)
+  $('#make-wine').trigger('reset')
+}
+const MakeWineFailure = function () {
+  console.log('make wine failure')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -43,5 +52,7 @@ module.exports = {
   changePasswordFailure,
   changePasswordSuccess,
   signOutFailure,
-  signOutSuccess
+  signOutSuccess,
+  MakeWineSuccess,
+  MakeWineFailure
 }
