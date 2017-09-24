@@ -43,6 +43,14 @@ const MakeWineSuccess = function (data) {
 const MakeWineFailure = function () {
   console.log('make wine failure')
 }
+const getWinesSuccess = function (data) {
+  console.log(data)
+  console.log('You got all the wines')
+}
+
+const getWinesFailure = function () {
+  console.error('error getting wines')
+}
 
 module.exports = {
   signUpSuccess,
@@ -54,5 +62,7 @@ module.exports = {
   signOutFailure,
   signOutSuccess,
   MakeWineSuccess,
-  MakeWineFailure
+  MakeWineFailure,
+  getWinesFailure,
+  getWinesSuccess
 }

@@ -47,10 +47,21 @@ const makeWine = function (data) {
     data
   })
 }
+
+const getWines = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/wines',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  makeWine
+  makeWine,
+  getWines
 }
