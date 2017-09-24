@@ -27,11 +27,21 @@ const changePasswordSuccess = function () {
 const changePasswordFailure = function () {
   console.log('Error changing password')
 }
+
+const signOutSuccess = function (gameLogic) {
+  console.log('sign out successful')
+  store.user = null
+}
+const signOutFailure = function () {
+  console.log('Error signing out')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInFailure,
   signInSuccess,
   changePasswordFailure,
-  changePasswordSuccess
+  changePasswordSuccess,
+  signOutFailure,
+  signOutSuccess
 }
