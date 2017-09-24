@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://ga-wdi-boston.herokuapp.com'
+    production: 'https://fierce-garden-65986.herokuapp.com/',
+    development: 'https://fierce-garden-65986.herokuapp.com/'
   }
 }
 
