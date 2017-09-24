@@ -36,8 +36,18 @@
           <legend>Change Password!</legend>
           <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password">
           <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
-          <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
           <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
+        </fieldset>
+      </form>
+      <form class="form-inline" id="make-wine">
+        <fieldset>
+          <legend>Make Wine</legend>
+          <input type="text" name="wine[name]" class="form-control" placeholder="Wine Name">
+          <input type="text" name="wine[region_name]" class="form-control" placeholder="Region Name">
+          <input type="text" name="wine[vintage]" class="form-control" placeholder="Vintage">
+          <input type="text" name="wine[notes]" class="form-control" placeholder="Notes">
+          <input type="text" name="wine[price]" class="form-control" placeholder="Price">
+          <input type="submit" name="submit" class="btn btn-primary" value="Make Wine!">
         </fieldset>
       </form>
       <form id="sign-out">
