@@ -19,10 +19,19 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('#sign-in').trigger('reset')
 }
+const changePasswordSuccess = function () {
+  console.log('changed password!')
+  $('#change-password').trigger('reset')
+}
 
+const changePasswordFailure = function () {
+  console.log('Error changing password')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInFailure,
-  signInSuccess
+  signInSuccess,
+  changePasswordFailure,
+  changePasswordSuccess
 }
