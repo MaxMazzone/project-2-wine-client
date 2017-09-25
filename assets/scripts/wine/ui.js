@@ -24,20 +24,22 @@ const getWinesSuccess = function (data) {
       .then(deleteWinesSuccess)
       .catch(deleteWinesFailure)
   })
-  $('.edit-wine').on('submit', function (event) {
-    const data = getFormFields(this)
-    // const wineData = data.wine
-    event.preventDefault()
-    const wineId = $(this).parent().data('id')
-    console.log('button working ' + 'data is ' + data)
-    console.log(data)
-    api.editWine(data, wineId)
-      .then(editWineSuccess)
-      .catch(editWineFailure)
-  })
-  $('.edit-wine-show').on('click', OnEditButtonClick)
+  $('.edit-wine').on('submit', onEditWine)
+  $('.edit-wine-show').on('click', onEditButtonClick)
 }
-const OnEditButtonClick = function (event) {
+const onEditWine = function (event) {
+  const data = getFormFields(this)
+  // const wineData = data.wine
+  event.preventDefault()
+  const wineId = $(this).parent().data('id')
+  console.log('button working ' + 'data is ' + data)
+  console.log(data)
+  api.editWine(data, wineId)
+    .then(editWineSuccess)
+    .catch(editWineFailure)
+}
+
+const onEditButtonClick = function (event) {
   const wineId = $(this).parent().parent().data('id')
   event.preventDefault()
   console.log('you clicked edit')
