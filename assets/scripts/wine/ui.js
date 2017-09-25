@@ -16,16 +16,18 @@ const getWinesSuccess = function (data) {
   $('.content').empty()
   const showWinesHtml = showWines({ wines: data.wines })
   $('.content').append(showWinesHtml)
-  $('.delete-wine').on('click', function () {
-    const wineId = $(this).parent().parent().data('id')
-    console.log('this will delete wine # ' + wineId)
-    $(this).parent().parent().remove()
-    api.deleteWine(data, wineId)
-      .then(deleteWinesSuccess)
-      .catch(deleteWinesFailure)
-  })
+  $('.delete-wine').on('click', onDeleteWineClick)
   $('.edit-wine').on('submit', onEditWine)
   $('.edit-wine-show').on('click', onEditButtonClick)
+}
+
+const onDeleteWineClick = function (data) {
+  const wineId = $(this).parent().parent().data('id')
+  console.log('this will delete wine # ' + wineId)
+  $(this).parent().parent().remove()
+  api.deleteWine(data, wineId)
+    .then(deleteWinesSuccess)
+    .catch(deleteWinesFailure)
 }
 const onEditWine = function (event) {
   const data = getFormFields(this)
