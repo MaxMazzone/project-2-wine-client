@@ -32,8 +32,19 @@ const editWine = function (data) {
     data
   })
 }
+
+const deleteWine = function (data, wineId) {
+  return $.ajax({
+    url: config.apiOrigin + '/wines/' + wineId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   makeWine,
   getWines,
-  editWine
+  editWine,
+  deleteWine
 }

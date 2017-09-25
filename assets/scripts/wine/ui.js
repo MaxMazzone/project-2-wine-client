@@ -1,4 +1,5 @@
 const showWines = require('../templates/wine-listing.handlebars')
+const api = require('./api')
 
 const MakeWineSuccess = function (data) {
   console.log('make wine success')
@@ -11,11 +12,16 @@ const MakeWineFailure = function () {
 const getWinesSuccess = function (data) {
   console.log(data)
   console.log('You got all the wines')
+  $('.content').empty()
   const showWinesHtml = showWines({ wines: data.wines })
   $('.content').append(showWinesHtml)
   $('.delete-wine').on('click', function () {
-    const showId = $(this).parent().parent().data('id')
-    console.log('this will delete wine # ' + showId)
+    const wineId = $(this).parent().parent().data('id')
+    console.log('this will delete wine # ' + wineId)
+    $(this).parent().parent().remove()
+    api.deleteWine(data, wineId)
+      .then(deleteWinesSuccess)
+      .catch(deleteWinesFailure)
   })
 }
 
@@ -30,6 +36,13 @@ const editWineSuccess = function (data) {
 const editWineFailure = function () {
   console.log('edit wine failure')
 }
+const deleteWinesSuccess = function (data) {
+  console.log('delete wine success')
+}
+const deleteWinesFailure = function () {
+  console.log('delete wine failure')
+}
+
 module.exports = {
   MakeWineSuccess,
   MakeWineFailure,
