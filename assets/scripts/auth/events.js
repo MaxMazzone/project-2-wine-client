@@ -37,29 +37,12 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
-const onMakeWine = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  console.log('button working')
-  console.log(data)
-  api.makeWine(data)
-    .then(ui.MakeWineSuccess)
-    .catch(ui.MakeWineFailure)
-}
 
-const onGetWines = function (event) {
-  event.preventDefault()
-  api.getWines()
-    .then(ui.getWinesSuccess)
-    .catch(ui.getWinesFailure)
-}
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  $('#make-wine').on('submit', onMakeWine)
-  $('#get-wines').on('submit', onGetWines)
 }
 
 module.exports = {
