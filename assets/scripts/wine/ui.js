@@ -1,3 +1,4 @@
+const showWines = require('../templates/wine-listing.handlebars')
 
 const MakeWineSuccess = function (data) {
   console.log('make wine success')
@@ -10,6 +11,12 @@ const MakeWineFailure = function () {
 const getWinesSuccess = function (data) {
   console.log(data)
   console.log('You got all the wines')
+  const showWinesHtml = showWines({ wines: data.wines })
+  $('.content').append(showWinesHtml)
+  $('.delete-wine').on('click', function () {
+    const showId = $(this).parent().parent().data('id')
+    console.log('this will delete wine # ' + showId)
+  })
 }
 
 const getWinesFailure = function () {
