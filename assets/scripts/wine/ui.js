@@ -35,6 +35,13 @@ const getWinesSuccess = function (data) {
       .then(editWineSuccess)
       .catch(editWineFailure)
   })
+  $('.edit-wine-show').on('click', function (event) {
+    const wineId = $(this).parent().parent().data('id')
+    event.preventDefault()
+    console.log('you clicked edit')
+    console.log(wineId)
+    $('#edit-wine-' + wineId).toggle()
+  })
 }
 
 const getWinesFailure = function () {
