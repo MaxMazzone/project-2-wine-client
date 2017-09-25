@@ -1,0 +1,13 @@
+{{#each wines as |wine|}}
+
+  <!-- {{> partial}}
+  Don't uncomment yet -->
+
+
+  <ul data-id="{{wine.id}}">
+    <li> Name: <strong>{{wine.name}}</strong> Region: <strong>{{wine.region_name}}</strong> Vintage: <strong>{{wine.vintage}}</strong> Notes: <strong>{{wine.notes}}</strong> $<strong>{{wine.price}}</strong></li>
+    <li><button class= "delete-wine" >Delete Wine</button></li>
+  </li>
+  </ul>
+
+{{/each}}
