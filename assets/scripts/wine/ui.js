@@ -1,5 +1,6 @@
 const showWines = require('../templates/wine-listing.handlebars')
 const api = require('./api')
+const getFormFields = require(`../../../lib/get-form-fields`)
 
 const MakeWineSuccess = function (data) {
   console.log('make wine success')
@@ -22,6 +23,17 @@ const getWinesSuccess = function (data) {
     api.deleteWine(data, wineId)
       .then(deleteWinesSuccess)
       .catch(deleteWinesFailure)
+  })
+  $('.edit-wine').on('submit', function (event) {
+    const data = getFormFields(this)
+    // const wineData = data.wine
+    event.preventDefault()
+    const wineId = $(this).parent().data('id')
+    console.log('button working ' + 'data is ' + data)
+    console.log(data)
+    api.editWine(data, wineId)
+      .then(editWineSuccess)
+      .catch(editWineFailure)
   })
 }
 
@@ -47,7 +59,5 @@ module.exports = {
   MakeWineSuccess,
   MakeWineFailure,
   getWinesFailure,
-  getWinesSuccess,
-  editWineFailure,
-  editWineSuccess
+  getWinesSuccess
 }

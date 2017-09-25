@@ -22,9 +22,9 @@ const getWines = function () {
   })
 }
 
-const editWine = function (data) {
+const editWine = function (data, wineId) {
   return $.ajax({
-    url: config.apiOrigin + '/change-password/' + data.wine_id,
+    url: config.apiOrigin + '/wines/' + wineId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
