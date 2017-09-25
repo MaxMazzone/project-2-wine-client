@@ -6,6 +6,9 @@ const MakeWineSuccess = function (data) {
   console.log('make wine success')
   console.log(data)
   $('#make-wine').trigger('reset')
+  api.getWines()
+    .then(getWinesSuccess)
+    .catch(getWinesFailure)
 }
 const MakeWineFailure = function () {
   console.log('make wine failure')
