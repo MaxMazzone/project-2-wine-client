@@ -56,12 +56,18 @@ const editWineSuccess = function (data) {
   console.log('edit wine success')
   console.log(data)
   $('#edit-wine').trigger('reset')
+  api.getWines()
+    .then(getWinesSuccess)
+    .catch(getWinesFailure)
 }
 const editWineFailure = function () {
   console.log('edit wine failure')
 }
 const deleteWinesSuccess = function (data) {
   console.log('delete wine success')
+  api.getWines()
+    .then(getWinesSuccess)
+    .catch(getWinesFailure)
 }
 const deleteWinesFailure = function () {
   console.log('delete wine failure')
