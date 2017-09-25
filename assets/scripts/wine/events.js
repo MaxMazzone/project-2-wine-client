@@ -20,9 +20,20 @@ const onGetWines = function (event) {
     .catch(ui.getWinesFailure)
 }
 
+const onEditWine = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  console.log('button working')
+  console.log(data)
+  api.editWine(data)
+    .then(ui.editWineSuccess)
+    .catch(ui.editWineFailure)
+}
+
 const addHandlers = function () {
   $('#make-wine').on('submit', onMakeWine)
   $('#get-wines').on('submit', onGetWines)
+  $('#edit-wine').on('submit', onEditWine)
 }
 
 module.exports = {

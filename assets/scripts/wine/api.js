@@ -21,7 +21,19 @@ const getWines = function () {
     }
   })
 }
+
+const editWine = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/change-password/' + data.wine_id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 module.exports = {
   makeWine,
-  getWines
+  getWines,
+  editWine
 }

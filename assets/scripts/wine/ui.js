@@ -15,10 +15,19 @@ const getWinesSuccess = function (data) {
 const getWinesFailure = function () {
   console.error('error getting wines')
 }
-
+const editWineSuccess = function (data) {
+  console.log('edit wine success')
+  console.log(data)
+  $('#edit-wine').trigger('reset')
+}
+const editWineFailure = function () {
+  console.log('edit wine failure')
+}
 module.exports = {
   MakeWineSuccess,
   MakeWineFailure,
   getWinesFailure,
-  getWinesSuccess
+  getWinesSuccess,
+  editWineFailure,
+  editWineSuccess
 }
