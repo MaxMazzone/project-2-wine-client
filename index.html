@@ -50,7 +50,6 @@
 
       <form class="form-inline main-page" id="make-wine">
         <fieldset>
-          <legend>Make Wine</legend>
           <input type="text" name="wine[name]" class="form-control" placeholder="Wine Name">
           <input type="text" name="wine[region_name]" class="form-control" placeholder="Region Name">
           <input type="text" name="wine[vintage]" class="form-control" placeholder="Vintage">
@@ -61,12 +60,20 @@
       </form>
       <form id="get-wines" class ="main-page">
         <fieldset>
-          <legend>See Your Cellar</legend>
           <input type="submit" name="submit" class="btn btn-success" value="See Your Cellar">
         </fieldset>
       </form>
-      <div id="content" class="content main-page">
+      <div id="content" class="content">
       </div>
+      <footer>
+        <div class="footer">
+      <form id="sign-out" class ="main-page">
+        <fieldset>
+          <input type="submit" name="submit" class="btn btn-danger btn-sm" value="Sign Out">
+        </fieldset>
+      </form>
+    </div>
+    <div class="footer">
       <div class="dropdown main-page">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Change Password
         <span class="caret"></span></button>
@@ -74,7 +81,6 @@
           <li><a href="#"></a>
             <form class="form-inline" id="change-password">
               <fieldset>
-                <legend>Change Password!</legend>
                 <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password">
                 <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
                 <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
@@ -84,11 +90,7 @@
           <li id ="change-password-message"><a href="#"></a></li>
         </ul>
     </div>
-      <form id="sign-out" class ="main-page">
-        <fieldset>
-          <legend>Sign Out</legend>
-          <input type="submit" name="submit" class="btn btn-danger btn-sm" value="Sign Out">
-        </fieldset>
-      </form>
+  </div>
+    </footer>
     </body>
 </html>

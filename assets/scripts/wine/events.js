@@ -15,7 +15,7 @@ const onMakeWine = function (event) {
 
 const onGetWines = function (event) {
   event.preventDefault()
-  $('.content').delay('100').slideToggle()
+  $('.content').slideToggle()
   api.getWines()
     .then(ui.getWinesSuccess)
     .catch(ui.getWinesFailure)
