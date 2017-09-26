@@ -2,22 +2,34 @@ const store = require('../store')
 
 const signUpSuccess = function (data) {
   console.log(data)
-  console.log('Successfully Signed Up!')
+  $('#sign-up-message').show()
+  $('#sign-up-message').text('Successfully Signed Up!')
+  $('#sign-up-message').delay(5000).fadeOut('slow')
   $('#sign-up').trigger('reset')
 }
 
 const signUpFailure = function () {
-  console.error('error signing up')
+  $('#sign-up-message').show()
+  $('#sign-up-message').text('Error Signing Up')
+  $('#sign-up-message').delay(5000).fadeOut('slow')
+  // console.error('error signing up')
 }
 const signInFailure = function () {
-  console.error('error signing in')
-  $('#message').show()
+  // console.error('error signing in')
+  $('#sign-in-message').show()
+  $('#sign-in-message').text('Error Signing In')
+  $('#sign-in-message').delay(5000).fadeOut('slow')
 }
 const signInSuccess = function (data) {
   console.log(data)
   console.log('Successfully Signed in, YO!')
   store.user = data.user
   $('#sign-in').trigger('reset')
+  $('#top-message').show()
+  $('#top-message').text('Welcome')
+  $('#top-message').delay(5000).fadeOut('slow')
+  $('.auth-event').fadeOut('800')
+  $('.main-page').fadeIn('slow')
 }
 const changePasswordSuccess = function () {
   console.log('changed password!')

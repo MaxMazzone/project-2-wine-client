@@ -13,47 +13,42 @@
     </head>
     <body class="container-fluid">
       <h1>Wine Cellar</h1>
-      <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-          Sign-up / Login <span class="caret"></span></button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">
-                <form class="form-inline" id="sign-up">
-                <fieldset>
-                  <legend>Sign up!</legend>
-                  <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
-                  <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
-                  <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
-                  <input type="submit" name="submit" class="btn btn-primary" value="Sign up!">
-                </fieldset>
-              </form></a>
-            </li>
-            <li id ="sign-up-message"><a href="#"></a></li>
-            <li><a href="#">
-               <form class="form-inline" id="sign-in">
-                    <fieldset>
-                      <legend>Sign in!</legend>
-                      <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
-                      <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
-                      <input type="submit" name="submit" class="btn btn-primary" value="Sign in!">
-                    </fieldset>
-                  </form></a>
-            </li>
-            <li id ="sign-in-message"><a href="#"></a></li>
-          </ul>
-        </div>
+      <h2 id="top-message"></h2>
+      <div class="dropdown auth-event">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sign Up
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">
+              <form class="form-inline" id="sign-up">
+              <fieldset>
+                <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+                <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+                <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
+                <input type="submit" name="submit" class="btn btn-primary" value="Sign up!">
+              </fieldset>
+            </form></a>
+          </li>
+          <li id ="sign-up-message" class ="auth-message"><a href="#"></a></li>
+        </ul>
+      </div>
+      <div class="dropdown auth-event">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sign In
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">
+             <form class="form-inline" id="sign-in">
+                  <fieldset>
+                    <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+                    <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Sign in!">
+                  </fieldset>
+                </form></a>
+          </li>
+          <li id ="sign-in-message" class ="auth-message"><a href="#"></a></li>
+        </ul>
+    </div>
 
-
-
-      <form class="form-inline" id="change-password">
-        <fieldset>
-          <legend>Change Password!</legend>
-          <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password">
-          <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
-          <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
-        </fieldset>
-      </form>
-      <form class="form-inline" id="make-wine">
+      <form class="form-inline main-page" id="make-wine">
         <fieldset>
           <legend>Make Wine</legend>
           <input type="text" name="wine[name]" class="form-control" placeholder="Wine Name">
@@ -64,15 +59,32 @@
           <input type="submit" name="submit" class="btn btn-primary" value="Make Wine!">
         </fieldset>
       </form>
-      <form id="get-wines">
+      <form id="get-wines" class ="main-page">
         <fieldset>
           <legend>See Your Cellar</legend>
           <input type="submit" name="submit" class="btn btn-success" value="See Your Cellar">
         </fieldset>
       </form>
-      <div id="content" class="content">
+      <div id="content" class="content main-page">
       </div>
-      <form id="sign-out">
+      <div class="dropdown main-page">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Change Password
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#"></a>
+            <form class="form-inline" id="change-password">
+              <fieldset>
+                <legend>Change Password!</legend>
+                <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password">
+                <input type="password" name="passwords[new]" class="form-control" placeholder="New Password">
+                <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
+              </fieldset>
+            </form>
+          </li>
+          <li id ="change-password-message"><a href="#"></a></li>
+        </ul>
+    </div>
+      <form id="sign-out" class ="main-page">
         <fieldset>
           <legend>Sign Out</legend>
           <input type="submit" name="submit" class="btn btn-danger btn-sm" value="Sign Out">
