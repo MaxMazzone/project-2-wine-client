@@ -25,24 +25,31 @@ const signInSuccess = function (data) {
   console.log('Successfully Signed in, YO!')
   store.user = data.user
   $('#sign-in').trigger('reset')
+  $('.auth-event').fadeOut('800')
   $('#top-message').show()
   $('#top-message').text('Welcome')
-  $('#top-message').delay(5000).fadeOut('slow')
-  $('.auth-event').fadeOut('800')
-  $('.main-page').fadeIn('slow')
+  $('#top-message').delay(800).fadeOut('slow')
+  $('.main-page').delay(1400).fadeIn('slow')
 }
 const changePasswordSuccess = function () {
   console.log('changed password!')
   $('#change-password').trigger('reset')
+  $('#change-password-message').show()
+  $('#change-password-message').text('Password Changed')
+  $('#change-password-message').delay(4000).fadeOut('slow')
 }
 
 const changePasswordFailure = function () {
   console.log('Error changing password')
 }
 
-const signOutSuccess = function (gameLogic) {
+const signOutSuccess = function () {
   console.log('sign out successful')
   store.user = null
+  $('.main-page').hide()
+  $('#top-message').hide()
+  $('.auth-event').delay(1000).fadeIn('800')
+  $('.content').empty()
 }
 const signOutFailure = function () {
   console.log('Error signing out')

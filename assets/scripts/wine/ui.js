@@ -37,8 +37,8 @@ const onEditWine = function (event) {
   // const wineData = data.wine
   event.preventDefault()
   const wineId = $(this).parent().data('id')
-  console.log('button working ' + 'data is ' + data)
-  console.log(data)
+  // console.log('button working ' + 'data is ' + data)
+  // console.log(data)
   api.editWine(data, wineId)
     .then(editWineSuccess)
     .catch(editWineFailure)
@@ -47,8 +47,8 @@ const onEditWine = function (event) {
 const onEditButtonClick = function (event) {
   const wineId = $(this).parent().parent().data('id')
   event.preventDefault()
-  console.log('you clicked edit')
-  console.log(wineId)
+  // console.log('you clicked edit')
+  // console.log(wineId)
   $('#edit-wine-' + wineId).toggle()
 }
 
