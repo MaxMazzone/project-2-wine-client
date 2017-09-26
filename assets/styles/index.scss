@@ -13,6 +13,7 @@ h1 {
   padding-bottom: 10px;
   color: rgba(163,24,24,.8);
   font-family: Caflisch, Script Pro;
+  text-decoration-line: underline;
 }
 
 body {
@@ -32,7 +33,7 @@ body {
 #content-message {
   font-family: Caflisch, Script Pro;
   display: none;
-  background-color: rgba(192, 192, 192, .45);
+  color: black;
 }
 
 .edit-wine {
@@ -57,6 +58,8 @@ body {
 #top-message {
   font-family: Caflisch, Script Pro;
   display: none;
+  color: rgba(54, 0, 0, .8);
+  font-size: 6em;
 }
 
 #change-password-message {

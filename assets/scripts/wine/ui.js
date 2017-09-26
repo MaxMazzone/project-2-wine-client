@@ -30,6 +30,7 @@ const getWinesSuccess = function (data) {
 }
 
 const noWinesCreated = function () {
+  $('#content-message').css('display', 'inline-block')
   $('#content-message').show()
   $('#content-message').text('No wines Yet')
   $('#content-message').delay(2000).fadeOut('2000')
