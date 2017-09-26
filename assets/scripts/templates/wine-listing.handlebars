@@ -10,9 +10,9 @@
           <fieldset>
             <input type="text" name="wine[name]" class="form-control" value="{{wine.name}}">
             <input type="text" name="wine[region_name]" class="form-control" value="{{wine.region_name}}">
-            <input type="text" name="wine[vintage]" class="form-control" value="{{wine.vintage}}">
+            <input type="number" name="wine[vintage]" class="form-control" value="{{wine.vintage}}">
             <input type="text" name="wine[notes]" class="form-control" value="{{wine.notes}}">
-            <input type="text" name="wine[price]" class="form-control" value={{wine.price}}>
+            <input type="number" name="wine[price]" class="form-control" value={{wine.price}}>
             <input type="submit" name="submit" class="btn btn-primary" value="Edit Wine">
           </fieldset>
       </form>

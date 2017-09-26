@@ -4,8 +4,9 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onMakeWine = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
+  $('#make-wine-price').val().replace(/\$/g, '')
+  const data = getFormFields(this)
   console.log('button working')
   console.log(data)
   api.makeWine(data)
