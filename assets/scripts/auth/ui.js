@@ -40,7 +40,10 @@ const changePasswordSuccess = function () {
 }
 
 const changePasswordFailure = function () {
-  console.log('Error changing password')
+  // console.log('Error changing password')
+  $('#change-password-message').show()
+  $('#change-password-message').text('Error Changing Password')
+  $('#change-password-message').delay(4000).fadeOut('slow')
 }
 
 const signOutSuccess = function () {
@@ -53,6 +56,9 @@ const signOutSuccess = function () {
 }
 const signOutFailure = function () {
   console.log('Error signing out')
+  $('#top-message').show()
+  $('#top-message').text('Error Signing out')
+  $('#top-message').delay(5000).fadeOut('slow')
 }
 
 module.exports = {
