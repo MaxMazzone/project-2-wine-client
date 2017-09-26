@@ -14,14 +14,25 @@ const MakeWineFailure = function () {
   console.log('make wine failure')
 }
 const getWinesSuccess = function (data) {
-  console.log(data)
-  console.log('You got all the wines')
+  // console.log(data)
+  // console.log('You got all the wines')
+  // console.log(data.wines.length)
   $('.content').empty()
   const showWinesHtml = showWines({ wines: data.wines })
   $('.content').append(showWinesHtml)
   $('.delete-wine').on('click', onDeleteWineClick)
   $('.edit-wine').on('submit', onEditWine)
   $('.edit-wine-show').on('click', onEditButtonClick)
+  $('.content').css('display', 'inline-block')
+  if (data.wines.length === 0) {
+    noWinesCreated()
+  }
+}
+
+const noWinesCreated = function () {
+  $('#content-message').show()
+  $('#content-message').text('No wines Yet')
+  $('#content-message').delay(2000).fadeOut('2000')
 }
 
 const onDeleteWineClick = function (data) {
@@ -53,18 +64,23 @@ const onEditButtonClick = function (event) {
 }
 
 const getWinesFailure = function () {
-  console.error('error getting wines')
+  $('#content-message').show()
+  $('#content-message').text('Unable to get wines')
+  $('#content-message').delay(2000).fadeOut('2000')
 }
 const editWineSuccess = function (data) {
-  console.log('edit wine success')
-  console.log(data)
+  // console.log('edit wine success')
+  // console.log(data)
   $('#edit-wine').trigger('reset')
   api.getWines()
     .then(getWinesSuccess)
     .catch(getWinesFailure)
 }
 const editWineFailure = function () {
-  console.log('edit wine failure')
+  // console.log('edit wine failure')
+  $('#content-message').show()
+  $('#content-message').text('Unable To Edit Wine')
+  $('#content-message').delay(2000).fadeOut('2000')
 }
 const deleteWinesSuccess = function (data) {
   console.log('delete wine success')
@@ -73,7 +89,10 @@ const deleteWinesSuccess = function (data) {
     .catch(getWinesFailure)
 }
 const deleteWinesFailure = function () {
-  console.log('delete wine failure')
+  // console.log('delete wine failure')
+  $('#content-message').show()
+  $('#content-message').text('Unable To Delete Wine')
+  $('#content-message').delay(2000).fadeOut('2000')
 }
 
 module.exports = {

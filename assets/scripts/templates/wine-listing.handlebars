@@ -5,7 +5,7 @@
 
 
   <ul data-id="{{wine.id}}">
-    <li> Name: <strong>{{wine.name}}</strong> Region: <strong>{{wine.region_name}}</strong> Vintage: <strong>{{wine.vintage}}</strong> Notes: <strong>{{wine.notes}}</strong> Price: $<strong>{{wine.price}}</strong>   <button class= "edit-wine-show btn btn-info btn-xs">edit</button>    <button class= "delete-wine btn btn-danger btn-xs">Delete</button></li>
+    <li> 🍷 <span class="wine-category"> Name:</span> <strong>{{wine.name}}</strong> <span class="wine-category"> Region:</span> <strong>{{wine.region_name}}</strong> <span class="wine-category"> Vintage:</span> <strong>{{wine.vintage}}</strong> <span class="wine-category"> Notes: </span> <strong>{{wine.notes}}</strong> <span class="wine-category">  Price:</span> $<strong>{{wine.price}}</strong>   <button class= "edit-wine-show btn btn-info btn-xs">edit</button>    <button class= "delete-wine btn btn-danger btn-xs">Delete</button></li>
     <form class="edit-wine form-inline" id="edit-wine-{{wine.id}}" >
           <fieldset>
             <input type="text" name="wine[name]" class="form-control" value="{{wine.name}}">
