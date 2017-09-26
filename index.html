@@ -13,24 +13,38 @@
     </head>
     <body class="container-fluid">
       <h1>Wine Cellar</h1>
+      <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          Sign-up / Login <span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">
+                <form class="form-inline" id="sign-up">
+                <fieldset>
+                  <legend>Sign up!</legend>
+                  <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+                  <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+                  <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
+                  <input type="submit" name="submit" class="btn btn-primary" value="Sign up!">
+                </fieldset>
+              </form></a>
+            </li>
+            <li id ="sign-up-message"><a href="#"></a></li>
+            <li><a href="#">
+               <form class="form-inline" id="sign-in">
+                    <fieldset>
+                      <legend>Sign in!</legend>
+                      <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+                      <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+                      <input type="submit" name="submit" class="btn btn-primary" value="Sign in!">
+                    </fieldset>
+                  </form></a>
+            </li>
+            <li id ="sign-in-message"><a href="#"></a></li>
+          </ul>
+        </div>
 
-      <form class="form-inline" id="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
-          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
-          <input type="submit" name="submit" class="btn btn-primary" value="Sign up!">
-        </fieldset>
-      </form>
-      <form class="form-inline" id="sign-in">
-        <fieldset>
-          <legend>Sign in!</legend>
-          <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
-          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
-          <input type="submit" name="submit" class="btn btn-primary" value="Sign in!">
-        </fieldset>
-      </form>
+
+
       <form class="form-inline" id="change-password">
         <fieldset>
           <legend>Change Password!</legend>
