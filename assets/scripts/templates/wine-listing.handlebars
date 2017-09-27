@@ -5,7 +5,7 @@
 
 
   <ul data-id="{{wine.id}}">
-    <li> 🍷 <span class="wine-category"> Name:</span> <strong>{{wine.name}}</strong> <span class="wine-category"> Region:</span> <strong>{{wine.region_name}}</strong> <span class="wine-category"> Vintage:</span> <strong>{{wine.vintage}}</strong> <span class="wine-category"> Notes: </span> <strong>{{wine.notes}}</strong> <span class="wine-category">  Price:</span><strong> ${{wine.price}}</strong>   <button class= "edit-wine-show btn btn-info btn-xs">edit</button>    <button class= "delete-wine btn btn-danger btn-xs">Delete</button></li>
+    <li> 🍷 <span class="wine-category"> Name:</span> <strong>{{wine.name}}</strong> <span class="wine-category"> Region:</span> <strong>{{wine.region_name}}</strong> <span class="wine-category"> Vintage:</span> <strong>{{wine.vintage}}</strong> <span class="wine-category"> Notes: </span> <strong>{{wine.notes}}</strong> <span class="wine-category">  Price:</span><strong> ${{wine.price}}</strong>   <button class= "edit-wine-show btn btn-info btn-xs">edit</button>    <button class= "delete-wine btn btn-danger btn-xs">Delete</button> <button class= "research-wine-button btn btn-info btn-xs">Research Wine</button></li>
     <form class="edit-wine form-inline" id="edit-wine-{{wine.id}}" >
           <fieldset>
             <input type="text" name="wine[name]" class="form-control" value="{{wine.name}}">
@@ -16,6 +16,16 @@
             <input type="submit" name="submit" class="btn btn-primary" value="Edit Wine">
           </fieldset>
       </form>
+      <form class="research-wine form-inline" id="research-wine-{{wine.id}}" >
+            <fieldset>
+              <input type="hidden" name="wine[name]" class="form-control" value="{{wine.name}}">
+              <input type="hidden" name="wine[region_name]" class="form-control" value="{{wine.region_name}}">
+              <input type="hidden" name="wine[vintage]" class="form-control" value="{{wine.vintage}}">
+              <input type="hidden" name="wine[notes]" class="form-control" value="{{wine.notes}}">
+              <input type="hidden" name="wine[price]" class="form-control" value={{wine.price}}>
+              <input type="hidden" name="submit" class="btn btn-info btn-xs" value="Research Wine">
+            </fieldset>
+        </form>
   </li>
   </ul>
 
