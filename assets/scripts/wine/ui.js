@@ -11,7 +11,10 @@ const MakeWineSuccess = function (data) {
     .catch(getWinesFailure)
 }
 const MakeWineFailure = function () {
-  console.log('make wine failure')
+  $('#content-message').css('display', 'inline-block')
+  $('#content-message').show()
+  $('#content-message').text('Wine Not Made. All Wines Must Include A Name.')
+  $('#content-message').delay(4000).fadeOut('2000')
 }
 const getWinesSuccess = function (data) {
   // console.log(data)
@@ -23,10 +26,30 @@ const getWinesSuccess = function (data) {
   $('.delete-wine').on('click', onDeleteWineClick)
   $('.edit-wine').on('submit', onEditWine)
   $('.edit-wine-show').on('click', onEditButtonClick)
+  $('.research-wine').on('click', onResearchClick)
+  $('.research-wine-button').on('click', onResearchButtonClick)
   $('.content').css('display', 'inline-block')
   if (data.wines.length === 0) {
     noWinesCreated()
   }
+}
+
+const onResearchButtonClick = function (event) {
+  const wineId = $(this).parent().parent().data('id')
+  event.preventDefault()
+  // console.log('you clicked edit')
+  // console.log(wineId)
+  $('#research-wine-' + wineId).click()
+}
+
+const onResearchClick = function (event) {
+  const data = getFormFields(this)
+  // const wineData = data.wine
+  event.preventDefault()
+  console.log(data.wine.name)
+  api.callGoogle(data.wine.name, data.wine.region_name, data.wine.vintage)
+    .then(callGoogleSuccess)
+    .catch(callGoogleFailure)
 }
 
 const noWinesCreated = function () {
@@ -95,10 +118,19 @@ const deleteWinesFailure = function () {
   $('#content-message').text('Unable To Delete Wine')
   $('#content-message').delay(2000).fadeOut('2000')
 }
-
+const callGoogleSuccess = function (data) {
+  console.log('call Google success')
+  console.log(data)
+  console.log(data.items[0].pagemap.pricespecification[0].price)
+}
+const callGoogleFailure = function () {
+  console.log('call Google failure')
+}
 module.exports = {
   MakeWineSuccess,
   MakeWineFailure,
   getWinesFailure,
-  getWinesSuccess
+  getWinesSuccess,
+  callGoogleSuccess,
+  callGoogleFailure
 }

@@ -42,9 +42,18 @@ const deleteWine = function (data, wineId) {
     }
   })
 }
+
+const callGoogle = function (name, region, vintage) {
+  return $.ajax({
+    url: 'https://www.googleapis.com/customsearch/v1?q=' + name + '&' + region + '&' + vintage + '&cx=008697528825471743326%3Avxgzabv2d64&key=AIzaSyCCJftMVxbjb2FsNsMhMtbvbJSMq8txlXE',
+    method: 'GET'
+  })
+}
+
 module.exports = {
   makeWine,
   getWines,
   editWine,
-  deleteWine
+  deleteWine,
+  callGoogle
 }
