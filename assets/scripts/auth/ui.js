@@ -53,6 +53,7 @@ const signOutSuccess = function () {
   $('#top-message').hide()
   $('.auth-event').delay(1000).fadeIn('800')
   $('.content').empty()
+  $('#research-message').empty()
 }
 const signOutFailure = function () {
   console.log('Error signing out')
