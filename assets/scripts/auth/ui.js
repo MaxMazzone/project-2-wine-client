@@ -1,7 +1,7 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   $('#sign-up-message').show()
   $('#sign-up-message').text('Successfully Signed Up!')
   $('#sign-up-message').delay(5000).fadeOut('slow')
@@ -21,8 +21,8 @@ const signInFailure = function () {
   $('#sign-in-message').delay(5000).fadeOut('slow')
 }
 const signInSuccess = function (data) {
-  console.log(data)
-  console.log('Successfully Signed in, YO!')
+  // console.log(data)
+  // console.log('Successfully Signed in, YO!')
   store.user = data.user
   $('#sign-in').trigger('reset')
   $('.auth-event').fadeOut('800')
@@ -32,7 +32,7 @@ const signInSuccess = function (data) {
   $('.main-page').delay(1400).fadeIn('slow')
 }
 const changePasswordSuccess = function () {
-  console.log('changed password!')
+  // console.log('changed password!')
   $('#change-password').trigger('reset')
   $('#change-password-message').show()
   $('#change-password-message').text('Password Changed')
@@ -47,7 +47,7 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function () {
-  console.log('sign out successful')
+  // console.log('sign out successful')
   store.user = null
   $('.main-page').hide()
   $('#top-message').hide()
@@ -56,7 +56,7 @@ const signOutSuccess = function () {
   $('#research-message').empty()
 }
 const signOutFailure = function () {
-  console.log('Error signing out')
+  // console.log('Error signing out')
   $('#top-message').show()
   $('#top-message').text('Error Signing out')
   $('#top-message').delay(5000).fadeOut('slow')

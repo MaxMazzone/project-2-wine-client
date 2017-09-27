@@ -3,8 +3,8 @@ const api = require('./api')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
 const MakeWineSuccess = function (data) {
-  console.log('make wine success')
-  console.log(data)
+  // console.log('make wine success')
+  // console.log(data)
   $('#make-wine').trigger('reset')
   api.getWines()
     .then(getWinesSuccess)
@@ -47,7 +47,7 @@ const onResearchClick = function (event) {
   const data = getFormFields(this)
   // const wineData = data.wine
   event.preventDefault()
-  console.log(data.wine.name)
+  // console.log(data.wine.name)
   api.callGoogle(data.wine.name, data.wine.region_name, data.wine.vintage)
     .then(callGoogleSuccess)
     .catch(callGoogleFailure)
@@ -62,7 +62,7 @@ const noWinesCreated = function () {
 
 const onDeleteWineClick = function (data) {
   const wineId = $(this).parent().parent().data('id')
-  console.log('this will delete wine # ' + wineId)
+  // console.log('this will delete wine # ' + wineId)
   $(this).parent().parent().remove()
   api.deleteWine(data, wineId)
     .then(deleteWinesSuccess)
@@ -108,7 +108,7 @@ const editWineFailure = function () {
   $('#content-message').delay(2000).fadeOut('2000')
 }
 const deleteWinesSuccess = function (data) {
-  console.log('delete wine success')
+  // console.log('delete wine success')
   api.getWines()
     .then(getWinesSuccess)
     .catch(getWinesFailure)
@@ -144,10 +144,10 @@ const callGoogleSuccess = function (data) {
   }
   $('#research-message').text('This is the closest search result: ' + name + ' ' + vintage + ' $' + price + ' ' + currency + ' in ' + format)
 
-  $('#research-message').delay(25000).fadeOut()
-  console.log('call Google success')
-  console.log(data)
-  console.log(data.items[0].pagemap.pricespecification[0].price)
+  $('#research-message').delay(15000).fadeOut()
+  // console.log('call Google success')
+  // console.log(data)
+  // console.log(data.items[0].pagemap.pricespecification[0].price)
 }
 const callGoogleFailure = function () {
   $('#research-message').empty()
