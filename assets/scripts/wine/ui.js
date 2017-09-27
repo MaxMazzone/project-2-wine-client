@@ -21,6 +21,7 @@ const getWinesSuccess = function (data) {
   // console.log('You got all the wines')
   // console.log(data.wines.length)
   $('.content').empty()
+  $('#research-message').empty()
   const showWinesHtml = showWines({ wines: data.wines })
   $('.content').append(showWinesHtml)
   $('.delete-wine').on('click', onDeleteWineClick)
@@ -119,18 +120,44 @@ const deleteWinesFailure = function () {
   $('#content-message').delay(2000).fadeOut('2000')
 }
 const callGoogleSuccess = function (data) {
+  $('#research-message').empty()
+  $('#research-message').show()
+  let name = data.items[0].pagemap.product[0].name
+  let price = data.items[0].pagemap.pricespecification[0].price
+  let currency = data.items[0].pagemap.pricespecification[0].pricecurrency
+  let format = data.items[0].pagemap.pricespecification[0].description
+  let vintage = data.items[0].pagemap.product[0].model
+  if (name === undefined) {
+    name = ''
+  }
+  if (price === undefined) {
+    price = ''
+  }
+  if (currency === undefined) {
+    currency = ''
+  }
+  if (format === undefined) {
+    format = ''
+  }
+  if (vintage === undefined) {
+    vintage = ''
+  }
+  $('#research-message').text('This is the closest search result: ' + name + ' ' + vintage + ' $' + price + ' ' + currency + ' in ' + format)
+
+  $('#research-message').delay(25000).fadeOut()
   console.log('call Google success')
   console.log(data)
   console.log(data.items[0].pagemap.pricespecification[0].price)
 }
 const callGoogleFailure = function () {
-  console.log('call Google failure')
+  $('#research-message').empty()
+  $('#research-message').show()
+  $('#research-message').text('Search Could not be completed')
+  $('#research-message').delay(4000).fadeOut()
 }
 module.exports = {
   MakeWineSuccess,
   MakeWineFailure,
   getWinesFailure,
-  getWinesSuccess,
-  callGoogleSuccess,
-  callGoogleFailure
+  getWinesSuccess
 }
