@@ -11,7 +11,10 @@ const MakeWineSuccess = function (data) {
     .catch(getWinesFailure)
 }
 const MakeWineFailure = function () {
-  console.log('make wine failure')
+  $('#content-message').css('display', 'inline-block')
+  $('#content-message').show()
+  $('#content-message').text('Wine Not Made. All Wines Must Include A Name.')
+  $('#content-message').delay(4000).fadeOut('2000')
 }
 const getWinesSuccess = function (data) {
   // console.log(data)
